@@ -1,0 +1,11 @@
+name: civic-grievance-triage
+version: 1.0.0
+description: An environment where an agent triages citizen complaints by categorizing them, assessing severity, and routing them to correct city departments.
+author: K_Yashwanth_Kumar
+tasks:
+  - id: easy_triage
+    description: Triage a clear, single-issue grievance.
+  - id: medium_triage
+    description: Triage a grievance requiring multiple departments.
+  - id: hard_triage
+    description: Triage a complex, multi-layered emergency crisis.
