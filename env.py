@@ -96,8 +96,10 @@ class GrievanceEnv:
             else:
                 feedback_msgs.append("Partial/incorrect departments.")
 
-        # Cap score at 1.0 just in case
-        score = min(max(score, 0.0), 1.0)
+        # # Cap score at 1.0 just in case
+        # score = min(max(score, 0.0), 1.0)
+        # Cap score strictly between 0.01 and 0.99 to pass Phase 2 validation
+        score = round(min(max(score, 0.01), 0.99), 2)
         
         done = True # One-shot task
         obs = GrievanceObservation(grievance_id=self.current_state["id"], text=self.current_state["text"], is_done=True)
