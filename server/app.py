@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from env import GrievanceEnv, GrievanceAction
 
 app = FastAPI()
+
 # Initialize with easy mode by default for the ping test
 env = GrievanceEnv("easy_triage") 
 
@@ -29,3 +30,11 @@ def step_env(action: GrievanceAction):
         "reward": reward.dict(),
         "done": done
     }
+
+# --- MANDATORY ENTRY POINT FOR THE GRADER ---
+def main():
+    import uvicorn
+    uvicorn.run("server.app:app", host="0.0.0.0", port=7860)
+
+if __name__ == "__main__":
+    main()
